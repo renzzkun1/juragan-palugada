@@ -50,7 +50,8 @@ export function saveApiKey(key) {
 }
 
 export function getApiKey() {
-    return localStorage.getItem('juragan_palugada_groq_key') || '';
+    // Coba ambil dari environment variable Vercel, kalau tidak ada, baru ambil dari localStorage
+    return process.env.GROQ_API_KEY || localStorage.getItem('juragan_palugada_groq_key') || '';
 }
 
 export function removeApiKey() {
