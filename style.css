@@ -1,0 +1,86 @@
+/* STREAMING_CHUNK: Setup Variabel Global & Reset */
+:root {
+--color-bg-main: #090d16;
+--color-glass-bg: rgba(15, 23, 42, 0.65);
+--color-glass-border: rgba(51, 65, 85, 0.4);
+--transition-snappy: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+--transition-bouncy: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* STREAMING_CHUNK: Perilaku Native App (Anti-Select & Pull-to-refresh) /
+html, body {
+background-color: var(--color-bg-main);
+/ Mencegah efek pull-to-refresh (tarik ke bawah untuk muat ulang) di HP /
+overscroll-behavior-y: none;
+/ Menghilangkan blok biru saat tombol di-tap di HP /
+-webkit-tap-highlight-color: transparent;
+/ Sentuhan layar lebih responsif */
+touch-action: manipulation;
+}
+
+/* Mencegah pengguna tidak sengaja menyorot/memblok teks saat bermain cepat */
+button, [data-nav], .prevent-select {
+user-select: none;
+-webkit-user-select: none;
+}
+
+/* STREAMING_CHUNK: Menghilangkan Scrollbar agar Terlihat Bersih */
+.scrollbar-none::-webkit-scrollbar {
+display: none;
+}
+.scrollbar-none {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+
+/* STREAMING_CHUNK: Safe Area & Glassmorphism /
+/ Dukungan layar berponi (Notch) di iOS/Android modern */
+.pb-safe {
+padding-bottom: calc(env(safe-area-inset-bottom, 16px) + 8px);
+}
+
+/* Efek Kaca (Glassmorphism) untuk Header & Navigasi */
+.glass-effect {
+background: var(--color-glass-bg);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border-top: 1px solid var(--color-glass-border);
+}
+
+/* STREAMING_CHUNK: Animasi Kustom Modern /
+/ Animasi masuk halaman dengan efek membesar (Scale) & memudar (Fade) */
+@keyframes fadeInScale {
+0% {
+opacity: 0;
+transform: scale(0.97) translateY(10px);
+}
+100% {
+opacity: 1;
+transform: scale(1) translateY(0);
+}
+}
+
+/* Terapkan animasi ini ke semua kontainer halaman aktif */
+.animate-page-enter {
+animation: fadeInScale var(--transition-snappy) forwards;
+}
+
+/* Efek pendaran neon untuk teks penting (seperti saldo/hari) */
+.neon-glow-amber {
+text-shadow: 0 0 10px rgba(251, 191, 36, 0.4), 0 0 20px rgba(251, 191, 36, 0.2);
+}
+
+.neon-glow-emerald {
+text-shadow: 0 0 10px rgba(52, 211, 153, 0.4), 0 0 20px rgba(52, 211, 153, 0.2);
+}
+
+/* STREAMING_CHUNK: Animasi Interaksi Tombol (Active State) /
+/ Membuat tombol terasa sangat responsif dan memantul saat ditekan */
+button {
+transition: all 0.15s ease-out;
+}
+
+button:active {
+transform: scale(0.92);
+filter: brightness(0.9);
+}

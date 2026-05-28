@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Juragan Palugada Simulator</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Memuat file CSS dari struktur folder Anda -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#090d16] text-slate-200 font-['Outfit'] h-screen w-screen flex items-center justify-center m-0 overflow-hidden">
+
+    <!-- Elemen ini akan menjadi wadah tempat renderer.js menyuntikkan seluruh antarmuka game -->
+    <div id="game-root" class="relative w-full h-full max-w-md bg-slate-900 shadow-2xl sm:rounded-[2.5rem] sm:border-[6px] sm:border-slate-800 overflow-hidden flex flex-col items-center justify-center">
+        
+        <!-- Tampilan Loading Semetara sebelum JS termuat -->
+        <h1 class="text-3xl font-extrabold text-amber-400 mb-4 animate-pulse">
+            Juragan Palugada
+        </h1>
+        <p class="text-slate-400 text-sm mb-6">Memuat Game Engine...</p>
+        <div class="w-8 h-8 border-4 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
+        
+    </div>
+
+    <!-- Atribut type="module" SANGAT PENTING agar sistem import/export di folder js/ Anda berfungsi -->
+    <script type="module" src="js/main.js"></script>
+
+</body>
+</html>
